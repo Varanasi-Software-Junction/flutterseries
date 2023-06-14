@@ -5,19 +5,31 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
-      
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.blueAccent,
         appBar: AppBar(
           centerTitle: true,
-          title: const Text("Varanasi Software Junction"),
+          title: const Text("flutterapp"),
           backgroundColor: Colors.blueGrey,
         ),
-        body: const Center(
-          child: Image(
-            image: NetworkImage(
-                "https://3.bp.blogspot.com/-py5FbTZgvjo/YDi1bsQq16I/AAAAAAAACB0/BxejbJBcHA4AVfkB33WYC3YlVmxElM7BwCK4BGAYYCw/s1600/Varanasi%2BSoftware%2BJunction%2BPhone%2BLogo.png"),
-          ),
+        body: const Column(
+          children: [
+            Center(
+              child: Image(
+                image: NetworkImage("https://picsum.photos/250?image=9"),
+              ),
+            ),
+            Center(
+              child: SizedBox(
+                width: 500,
+                height: 300,
+                child: Image(
+                  image: NetworkImage("https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_640.jpg"),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     ),
