@@ -20,13 +20,10 @@ void main() {
                 image: NetworkImage("https://picsum.photos/250?image=9"),
               ),
             ),
-            Center(
-              child: SizedBox(
-                width: 500,
-                height: 300,
-                child: Image(
-                  image: NetworkImage("https://cdn.pixabay.com/photo/2015/11/19/21/10/glasses-1052010_640.jpg"),
-                ),
+            SizedBox(
+              width: 100,
+              child: Image(
+                image: AssetImage("images/img.jpg"),
               ),
             ),
           ],
