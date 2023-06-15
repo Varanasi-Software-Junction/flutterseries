@@ -3,32 +3,33 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int count = 0;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.blueAccent,
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text("flutterapp"),
-          backgroundColor: Colors.blueGrey,
-        ),
-        body: const Column(
-          children: [
-            Center(
-              child: Image(
-                image: NetworkImage("https://picsum.photos/250?image=9"),
-              ),
-            ),
-            SizedBox(
-              width: 100,
-              child: Image(
-                image: AssetImage("images/img.jpg"),
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-  );
+          appBar: AppBar(
+            title: const Text("Title"),
+          ),
+          body: ElevatedButton(
+            child: Text("Click $count"),
+            onPressed: () {
+              count++;
+              setState(() {});
+              print("I was pressed $count");
+            },
+          )),
+    );
+  }
 }
