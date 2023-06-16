@@ -14,11 +14,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int a = 0, b = 0;
+  int a = 0,
+      b = 0;
   int total = 0;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: const Text("Container"),
@@ -32,7 +35,8 @@ class _MyAppState extends State<MyApp> {
                 child: TextField(
                   onChanged: (value) {
                     a = int.parse(value);
-                    print(value);
+                    // ignore: avoid_print
+                    print (value);
                   },
                 ),
               ),
@@ -40,19 +44,31 @@ class _MyAppState extends State<MyApp> {
             SizedBox(
               width: 100,
               child: TextField(onChanged: (value) {
+                // ignore: avoid_print
                 print(value);
                 b = int.parse(value);
               }),
             ),
             ElevatedButton(
                 onPressed: () {
-                  total = a + b;
+                  total = a - b;
                   setState(() {});
                 },
-                child: const Text("Add")),
+                child: const Text("Subtract")),
           ],
         ),
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
