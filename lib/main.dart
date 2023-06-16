@@ -14,39 +14,45 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int count = 0;
-
+  int a = 0, b = 0;
+  int total = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: const Text("Title"),
-          ),
-          body: Column(
-            children: [
-
-              Center(child: Text("$count ")),
-              Center(
-                child: ElevatedButton(
-                  child: Text("+"),
-                  onPressed: () {
-                    count++;
-                    setState(() {});
-                    print("I was pressed $count");
+        appBar: AppBar(
+          title: const Text("Container"),
+        ),
+        body: Column(
+          children: [
+            Center(child: Text("Result = $total")),
+            Center(
+              child: SizedBox(
+                width: 100,
+                child: TextField(
+                  onChanged: (value) {
+                    a = int.parse(value);
+                    print(value);
                   },
                 ),
               ),
-              ElevatedButton(
-                child: Text("-"),
+            ),
+            SizedBox(
+              width: 100,
+              child: TextField(onChanged: (value) {
+                print(value);
+                b = int.parse(value);
+              }),
+            ),
+            ElevatedButton(
                 onPressed: () {
-                  count--;
+                  total = a + b;
                   setState(() {});
-                  print("I was pressed $count");
                 },
-              ),
-            ],
-          )),
+                child: const Text("Add")),
+          ],
+        ),
+      ),
     );
   }
 }
