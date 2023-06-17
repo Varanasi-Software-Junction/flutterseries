@@ -14,8 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int a = 0,
-      b = 0;
+  int a = 0, b = 0;
   int total = 0;
 
   @override
@@ -33,21 +32,25 @@ class _MyAppState extends State<MyApp> {
               child: SizedBox(
                 width: 100,
                 child: TextField(
+                  keyboardType: TextInputType.number,
                   onChanged: (value) {
                     a = int.parse(value);
                     // ignore: avoid_print
-                    print (value);
+                    print(value);
                   },
                 ),
               ),
             ),
             SizedBox(
               width: 100,
-              child: TextField(onChanged: (value) {
-                // ignore: avoid_print
-                print(value);
-                b = int.parse(value);
-              }),
+              child: TextField(
+                onChanged: (value) {
+                  // ignore: avoid_print
+                  print(value);
+                  b = int.parse(value);
+                },
+                keyboardType: TextInputType.number,
+              ),
             ),
             ElevatedButton(
                 onPressed: () {
@@ -61,14 +64,3 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
